@@ -1,4 +1,4 @@
-package main.java.com.example.taskmanagement.service;
+package com.example.taskmanagement.service;
 
 import com.example.taskmanagement.model.Task;
 import com.example.taskmanagement.repository.TaskRepository;

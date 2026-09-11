@@ -1,4 +1,4 @@
-package main.java.com.example.taskmanagement.repository;
+package com.example.taskmanagement.repository;
 
 import com.example.taskmanagement.model.Task;
 import org.springframework.stereotype.Repository;

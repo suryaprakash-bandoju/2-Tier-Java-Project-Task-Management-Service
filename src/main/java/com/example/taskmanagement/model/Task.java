@@ -1,4 +1,4 @@
-package main.java.com.example.taskmanagement.model;
+package com.example.taskmanagement.model;
 
 public class Task {
 
