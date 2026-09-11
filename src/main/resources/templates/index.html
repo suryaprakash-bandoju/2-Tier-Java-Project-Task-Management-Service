@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Task Manager</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>Task Manager</h1>
+
+        <p>Manage your tasks easily</p>
+
+        <a class="button"
+           href="/tasks/new">
+            + Add New Task
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <div class="task-list">
+
+            <div class="task-card"
+                 th:each="task : ${tasks}">
+
+                <div class="task-content">
+
+                    <h2 th:text="${task.title}">
+                        Task Title
+                    </h2>
+
+                    <p th:text="${task.description}">
+                        Task description
+                    </p>
+
+                    <span th:if="${task.completed}"
+                          class="completed">
+                        Completed
+                    </span>
+
+                    <span th:unless="${task.completed}"
+                          class="pending">
+                        Pending
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <a th:href="@{/tasks/edit/{id}(id=${task.id})}"
+                       class="edit">
+                        Edit
+                    </a>
+
+                    <a th:href="@{/tasks/delete/{id}(id=${task.id})}"
+                       class="delete"
+                       onclick="return confirm('Delete this task?')">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

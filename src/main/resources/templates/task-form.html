@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Task Form</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container form-container">
+
+    <h1 th:if="${task.id == null}">
+        Create Task
+    </h1>
+
+    <h1 th:unless="${task.id == null}">
+        Edit Task
+    </h1>
+
+
+    <form th:if="${task.id == null}"
+          th:action="@{/tasks}"
+          th:object="${task}"
+          method="post">
+
+        <label>Title</label>
+
+        <input type="text"
+               th:field="*{title}"
+               required>
+
+
+        <label>Description</label>
+
+        <textarea th:field="*{description}"
+                  rows="5"
+                  required></textarea>
+
+
+        <label class="checkbox">
+
+            <input type="checkbox"
+                   th:field="*{completed}">
+
+            Completed
+
+        </label>
+
+
+        <button type="submit">
+            Create Task
+        </button>
+
+        <a href="/">
+            Cancel
+        </a>
+
+    </form>
+
+
+    <form th:unless="${task.id == null}"
+          th:action="@{/tasks/update/{id}(id=${task.id})}"
+          th:object="${task}"
+          method="post">
+
+        <label>Title</label>
+
+        <input type="text"
+               th:field="*{title}"
+               required>
+
+
+        <label>Description</label>
+
+        <textarea th:field="*{description}"
+                  rows="5"
+                  required></textarea>
+
+
+        <label class="checkbox">
+
+            <input type="checkbox"
+                   th:field="*{completed}">
+
+            Completed
+
+        </label>
+
+
+        <button type="submit">
+            Update Task
+        </button>
+
+        <a href="/">
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
