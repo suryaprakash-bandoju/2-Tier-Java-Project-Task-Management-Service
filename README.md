@@ -9,6 +9,7 @@ A simple Task Management REST API built using Java and Spring Boot.
 - Maven
 - Spring Web
 - JUnit 5
+- Jenkins
 
 ## Features
 
@@ -18,6 +19,7 @@ A simple Task Management REST API built using Java and Spring Boot.
 - Update tasks
 - Delete tasks
 - Unit tests
+- Jenkins CI pipeline
 
 ## Project Structure
 
@@ -40,3 +42,8 @@ src/
     └── java/
         └── com/example/taskmanagement/
             └── TaskServiceTest.java
+
+Jenkinsfile
+pom.xml
+README.md
+.gitignore
